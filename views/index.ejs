@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+    <title>Data Mahasiswa</title>
+  </head>
+  <body>
+    <div class="container">
+      <h3 class="text-center pt-5">INSTITUT TEKNOLOGI DAN BISNIS ASIA MALANG</h3>
+      <div class="card mt-5">
+        <div class="card-header bg-primary text-white">Input Mahasiswa</div>
+        <div class="card-body">
+          <form method="post" action="/tambah">
+            <div class="form-group">
+              <label>Nama</label>
+              <input type="text" name="nama" class="form-control mb-2" placeholder="Nama Mahasiswa" required />
+              <label>Asal</label>
+              <input type="text" name="asal" class="form-control mb-2" placeholder="Asal Mahasiswa" required />
+              <button type="submit" class="btn btn-primary mt-2">Simpan</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="card mt-5 justify-content-center">
+        <div class="card-header bg-success text-white">Daftar Mahasiswa</div>
+        <div class="card-body">
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th scope="col">No.</th>
+                <th scope="col">Nama</th>
+                <th scope="col">Asal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <%for (let user of users){ %>
+              <tr>
+                <td scope="row"><%= user.id %></td>
+                <td scope="row"><%= user.nama %></td>
+                <td scope="row"><%= user.asal %></td>
+              </tr>
+              <% } %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>
